@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "spacex-timeline"
+  "defaultProject": "spacex-timeline",
+  "cli": {
+    "analytics": false
+  }
 }
