@@ -7,11 +7,13 @@ import { MzdTimelineModule } from 'ngx-mzd-timeline';
 
 import { AppComponent } from './app.component';
 import { TitleCasePipe } from './title-case.pipe';
+import { LaunchTimelineComponent } from './launch-timeline/launch-timeline.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    LaunchTimelineComponent
   ],
   imports: [
     BrowserModule,

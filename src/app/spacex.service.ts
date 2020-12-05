@@ -1,17 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Launch } from 'src/types/spacex';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class SpacexService {
 
-  public api = 'https://api.spacexdata.com/v3/';
+	private spacexURL = 'https://api.spacexdata.com/v3';
 
-  public constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  public getLaunches() {
-    return this.http.get(`${this.api}/launches`);
-  }
+	public getLaunches() {
+		return this.http.get(`${this.spacexURL}/launches`, { observe: 'body', responseType: 'json'});
+	}
 
 }

@@ -1,0 +1,5 @@
+<mzd-timeline *ngIf="launches">
+  <mzd-timeline-content *ngFor="let launch of launches">
+    <h3>{{launch.mission_name}}</h3>
+  </mzd-timeline-content>
+</mzd-timeline>
