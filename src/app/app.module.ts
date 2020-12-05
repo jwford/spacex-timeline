@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { TitleCasePipe } from './title-case.pipe';
 import { LaunchTimelineComponent } from './launch-timeline/launch-timeline.component';
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TimelineItemComponent } from './timeline-item/timeline-item.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MzdTimelineModule
+    MzdTimelineModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
