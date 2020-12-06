@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import { Launch } from 'src/types/spacex';
+import { PayloadDetailsComponent } from '../payload-details/payload-details.component';
 
 import * as moment from 'moment';
 
@@ -10,6 +13,8 @@ import * as moment from 'moment';
 })
 export class TimelineItemComponent {
 
+  constructor(public dialog: MatDialog) {}
+
   @Input() launch: Launch | null = null;
 
   formatLaunchDateLocal() {
@@ -18,6 +23,10 @@ export class TimelineItemComponent {
 
   formatLaunchDateUTC() {
     return this.launch?.launch_date_utc ? moment(this.launch!.launch_date_utc).format('YYYY MMMM Do') : null;
+  }
+
+  openDialog() {
+    return this.dialog.open(PayloadDetailsComponent, { data: { payloads: this.launch?.rocket.second_stage.payloads ?? null }});
   }
 
 }

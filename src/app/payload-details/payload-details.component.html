@@ -1,0 +1,11 @@
+<div *ngIf="data.payloads">
+  <div *ngFor="let payload of data.payloads">
+    <h2 mat-dialog-title>{{payload.payload_id}}</h2>
+    <mat-dialog-content class="mat-typography">
+      <p>Customer(s): {{payload.customers.join(', ')}}</p>
+    </mat-dialog-content>
+  </div>
+</div>
+<div *ngIf="!data.payloads">
+  <p>Sorry! Couldn't find any payloads for this mission.</p>
+</div>

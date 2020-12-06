@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MzdTimelineModule } from 'ngx-mzd-timeline';
 
@@ -13,6 +14,7 @@ import { LaunchTimelineComponent } from './launch-timeline/launch-timeline.compo
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { PayloadDetailsComponent } from './payload-details/payload-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     TitleCasePipe,
     LaunchTimelineComponent,
     TimelineItemComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    PayloadDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MzdTimelineModule,
     FontAwesomeModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

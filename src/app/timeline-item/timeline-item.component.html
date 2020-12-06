@@ -5,4 +5,5 @@
     <img *ngIf="launch.links.mission_patch" [src]="launch.links.mission_patch" alt="mission patch" width="70px" height="70px" class="patch" />
   </div>
   <p *ngIf="launch.details" class='launch_details'>{{launch.details}}</p>
+  <button mat-raised-button class="payload_details_button" (click)="openDialog()">Payload Details</button>
 </div>
