@@ -10,21 +10,21 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MzdTimelineModule } from 'ngx-mzd-timeline';
 
 import { AppComponent } from './app.component';
-import { TitleCasePipe } from './title-case.pipe';
 import { LaunchTimelineComponent } from './launch-timeline/launch-timeline.component';
 import { TimelineItemComponent } from './timeline-item/timeline-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { PayloadDetailsComponent } from './payload-details/payload-details.component';
+import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TitleCasePipe,
     LaunchTimelineComponent,
     TimelineItemComponent,
     ToolbarComponent,
-    PayloadDetailsComponent
+    PayloadDetailsComponent,
+    FilterDialogComponent
   ],
   imports: [
     BrowserModule,
