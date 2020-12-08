@@ -1,5 +1,10 @@
-<mzd-timeline *ngIf="launches">
-  <mzd-timeline-content *ngFor="let launch of launches">
+<mat-form-field>
+  <input matInput type="text" [formControl]="filter" placeholder="Search for mission names" />
+</mat-form-field>
+
+<mzd-timeline *ngIf="filteredLaunches$">
+  <mzd-timeline-content *ngFor="let launch of filteredLaunches$ | async">
     <app-timeline-item [launch]="launch"></app-timeline-item>
   </mzd-timeline-content>
 </mzd-timeline>
+

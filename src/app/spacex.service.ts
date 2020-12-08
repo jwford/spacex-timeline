@@ -13,7 +13,7 @@ export class SpacexService {
 	constructor(private http: HttpClient) { }
 
 	public getLaunches() {
-		return this.http.get(`${this.spacexURL}/launches`, { observe: 'body', responseType: 'json'});
+		return this.http.get<Launch[]>(`${this.spacexURL}/launches`, { observe: 'body', responseType: 'json'});
 	}
 
 }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+import { combineLatest, Observable, pipe } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
 import { Launch } from 'src/types/spacex';
 import { SpacexService } from '../spacex.service';
 
@@ -9,13 +14,20 @@ import { SpacexService } from '../spacex.service';
 })
 export class LaunchTimelineComponent implements OnInit {
 
-  public launches: Launch[] | null = null;
+  public filter = new FormControl('');
+  public filter$: Observable<string> | null = null;
+  public filteredLaunches$: Observable<Launch[]> | null = null;
+  public launches$: Observable<Launch[]> | null = null;
 
   constructor(private spacex: SpacexService) { }
 
-  ngOnInit(): void {
-    this.spacex.getLaunches()
-      .subscribe(res => this.launches = res as Launch[]);
+  ngOnInit() {
+    this.filter$ = this.filter.valueChanges.pipe(startWith(''));
+
+    this.launches$ = this.spacex.getLaunches();
+
+    this.filteredLaunches$ = combineLatest([this.launches$, this.filter$]).pipe(
+      map(([launches, filterString]) => launches.filter(launch => launch.mission_name.toLowerCase().indexOf(filterString.toLowerCase()) !== -1)));
   }
 
 }
